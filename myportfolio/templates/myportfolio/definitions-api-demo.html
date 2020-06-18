@@ -1,0 +1,35 @@
+{% extends 'myportfolio/index.html' %}
+{% load static %}
+{% block title %} Definitions API Demo {% endblock %}
+
+{%  block content %}
+
+<div class="container  my-container">
+    <div class="row my-row">
+        <div class="col-9 my-col">
+
+            <div>
+                <h3> Word: {{ myWord.word }}</h3>
+                <h3> Word: {{ myWord.definitions[0].definition }}</h3>
+            </div>
+        </div>
+        <div class="col-3 my-col desc-card">
+            <h3>Definitions API</h3>
+            <p>
+                Header:
+                <ol>
+                    <li>LI 1</li>
+                </ol>
+            </p>
+        </div>
+    </div>
+    <div class="row my-row">
+        <div class="col my-col desc-card">
+            <h3>Tools used:</h3>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

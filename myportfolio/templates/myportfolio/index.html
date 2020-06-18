@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Christian's Portfolio</title>
+    <style>
+
+        body {
+            margin: 20px;
+            //background-color: #F3E8EE;
+            background: #475B63;
+        }
+
+
+        .my-container{
+            margin-top: 45px;
+            //border: 1px solid black;
+
+        }
+
+        <!--div.my-col div.my-container{
+            margin-top: 0px;
+            border: 1px solid black;
+        }-->
+
+        .my-row{
+            height: 100%;
+
+            //border: 2px solid gray;
+        }
+
+        div.card-lg{
+            height: 400px;
+            //border: 2px solid #729B79;
+        }
+
+        .my-col{
+            border-radius: 5px;
+            text-align: center;
+
+            overflow:hidden;
+
+            //border: 2px solid brown;
+        }
+
+        .expand-col{
+            transition: all .2s ease-in-out;
+        }
+
+        .expand-col:hover{
+            background-color: #729B79;
+            transform: scale(1.05);
+            color: white;
+            box-shadow: 0px 2px 5px #969696;
+            cursor: pointer;
+        }
+
+        .my-navbar{
+            background-color: #1C333C;
+        }
+
+        .current-page{
+            background-color: #729B79;
+            border-radius: 8px;
+        }
+
+        .desc-card{
+            background-color: #607279;
+            text-align: left;
+        }
+
+        .demo-card{
+            transition: all .2s ease-in-out;
+            height: #839095;
+        }
+
+        .demo-card:hover{
+            transform: scale(1.08);
+            z-index: 1;
+        }
+
+        .demo-banner{
+            background-color: white;
+            border-radius: 0px 0px 8px 8px;
+            border-top: 1px solid black;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        h3{
+            color: white;
+        }
+
+
+    </style>
+  </head>
+<body>
+
+<nav class="navbar navbar-expand navbar-dark my-navbar">
+    <a class="navbar-brand" href="#">Portfolio</a>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-me">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="demos">Demos</a>
+          </li>
+    </ul>
+</nav>
+
+
+{% block content %}
+{% endblock %}
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('current-page'); $(this).parents('li').addClass('current-page');
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

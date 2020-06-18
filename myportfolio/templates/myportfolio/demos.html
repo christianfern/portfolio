@@ -1,0 +1,75 @@
+{% extends 'myportfolio/index.html' %}
+{% load static %}
+{% block title %} Demos View {% endblock %}
+
+{% block content %}
+
+<div class="container my-container">
+    <div class="row my-row justify-content-between">
+            <div class="col-5 my-col demo-card">
+                <a href="processing-demo">
+                <div class="container my-container" style="padding:0px;">
+                    <div class="row my-row" >
+                        <div class="col my-col" style="height:242px;overflow:hidden;padding:0px;">
+                            <img src="{% static 'myImgs/sorting-demo.JPG' %}" alt="Sorting Demo Cover" width="490" height="340">
+                        </div>
+                    </div>
+                    <div class="row my-row">
+                        <div class="col my-col" style="background-color: white;">
+                            <h5>Sorting Algorithm</h5>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+        <div class="col-5 my-col demo-card">
+            <a href="definitions-api-demo">
+                <div class="container my-container" style="padding:0px;">
+                    <div class="row my-row" >
+                        <div class="col my-col" style="height:242px;overflow:hidden;padding:0px;background-color:white;">
+                        </div>
+                    </div>
+                    <div class="row my-row">
+                        <div class="col demo-banner">
+                            <h5>Rest API Demo</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row my-row justify-content-between">
+        <div class="col-5 my-col demo-card">
+            <a href="">
+                <div class="container my-container" style="padding:0px;">
+                    <div class="row my-row" >
+                        <div class="col demo-banner" style="height:242px;overflow:hidden;padding:0px;background-color:white;">
+                        </div>
+                    </div>
+                    <div class="row my-row">
+                        <div class="col demo-banner" style="background-color: white;">
+                            <h5>Demo #3</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-5 my-col demo-card">
+            <a href="">
+                <div class="container my-container" style="padding:0px;">
+                    <div class="row my-row" >
+                        <div class="col demo-banner" style="height:242px;overflow:hidden;padding:0px;background-color:white;">
+                        </div>
+                    </div>
+                    <div class="row my-row">
+                        <div class="col demo-banner" style="background-color: white;">
+                            <h5>Demo #4</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
