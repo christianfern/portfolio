@@ -5,14 +5,17 @@
 {%  block content %}
 
 <script src="{% static 'myScripts/processing-1.0.0.min.js' %}"></script>
-
-<div class="container  my-container">
-    <div class="row my-row">
+    <div class="row">
+        <div class="col-12">
+            <h1>Sorting algorithm visualization</h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-9 my-col">
             <canvas data-processing-sources="{% static 'myScripts/sorting-alg-demo.pde' %}"></canvas>
         </div>
-        <div class="col-3 my-col desc-card">
-            <h3>Sorting Algorithm Visualization</h3>
+        <div class="col-3" style="border-left: 1px solid Gainsboro;">
+            <h3>Description</h3>
             <p>
                 This visualization demonstrates an insertion sort algorithm in live time. The program works as follows:
                 <ol>
@@ -23,12 +26,45 @@
             </p>
         </div>
     </div>
-    <div class="row my-row">
-        <div class="col my-col desc-card">
-            <h3>Tools used:</h3>
+    <hr/>
+    <div class="row top-buffer">
+        <div class="col-12">
+            <h3>Tools used</h3>
         </div>
     </div>
-</div>
+    <div class="row justify-content-center">
+        <div class="col-2 d-flex justify-content-center">
+            <div class="p-2 tool-div text-center">
+                <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" alt="python" width="105" height="105">
+                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                    <p>Python</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 d-flex">
+            <div class="p-2 tool-div text-center">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/django-2-282855.png" alt="django" width="105" height="105">
+                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                    <p>Django</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="row align-items-center" style="height:100%">
+                <div class="col text-center">
+                    <h1><strong>+</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 d-flex justify-content-center">
+            <div class="p-2 tool-div text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Processing_3_logo.png/240px-Processing_3_logo.png" alt="processing 3" width="105" height="105">
+                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                    <p>Processing 3</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 

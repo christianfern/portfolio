@@ -11,14 +11,15 @@
         body {
             margin: 20px;
             //background-color: #F3E8EE;
-            background: #475B63;
+            background: white;
         }
 
 
         .my-container{
             margin-top: 45px;
-            //border: 1px solid black;
-
+            border-left: 1px solid Gainsboro;
+            border-right: 1px solid Gainsboro;
+            padding: 20px 30px;
         }
 
         <!--div.my-col div.my-container{
@@ -26,7 +27,7 @@
             border: 1px solid black;
         }-->
 
-        .my-row{
+        .my-row{s
             height: 100%;
 
             //border: 2px solid gray;
@@ -92,8 +93,16 @@
             text-decoration: none;
         }
 
-        h3{
-            color: white;
+        .empty-box{
+            height: 10px;
+        }
+
+        .top-buffer { margin-top:20px; }
+
+        .tool-div{
+            height:150px;
+            width: 150px;
+            //border: 1px solid green;
         }
 
 
@@ -105,23 +114,24 @@
     <a class="navbar-brand" href="#">Portfolio</a>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'portfolio:index' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about-me">About Me</a>
+            <a class="nav-link" href="{% url 'portfolio:about-me' %}">About Me</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="demos">Demos</a>
+            <a class="nav-link" href="{% url 'portfolio:demos' %}">Demos</a>
           </li>
     </ul>
 </nav>
 
-
+<div class="container my-container">
 {% block content %}
 {% endblock %}
+</div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,0 +1,134 @@
+{% extends 'myportfolio/index.html' %}
+{% load static %}
+{% block title %} Definitions API Demo {% endblock %}
+
+{%  block content %}
+    <div class="row">
+        <div class="col-12">
+            <h1>Definitions API</h1>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-9">
+            <form action="{% url 'portfolio:definitions-api-demo-response' %}" method="GET">{% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter any word" name="word"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+
+            {% if wordJson == None %}
+                <div class="row top-buffer">
+                   <div class="col-12 text-left">
+                       <h5>Could not find a definition.</h5>
+                   </div>
+                    <div class="col-10"></div>
+                </div>
+            {% endif %}
+
+            {% if wordJson != None %}
+                <div class="row top-buffer">
+                    <div class="col-12 text-left text-primary">
+                        <h2>{{ wordJson.word }}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col-2 text-left">
+                       <h5>Definitions</h5>
+                   </div>
+                    <div class="col-10"></div>
+                </div>
+                    {% for def in wordJson.definitions %}
+                        <div class="row top-buffer">
+                            <div class="col-1 text-right"> {{ forloop.counter }}</div>
+                            <div class="col-2 font-weight-bold" style="border-right: 2px solid Gainsboro;border-top:2px solid Gainsboro;">{{ def.type }}</div>
+                            <div class="col-7">
+                                <div class="row">
+                                    <div class="col">
+                                        {{ def.definition }}
+                                    </div>
+                                </div>
+                                {% if def.example != None %}
+                                    <div class="row top-buffer">
+                                        <div class="col-2 text-secondary" style="border-right: 1px solid Gainsboro;border-top:1px solid Gainsboro;">
+                                            example
+                                        </div>
+                                        <div class="col-10">
+                                            {{ def.example }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-2">
+                                {% if def.image_url != None %}
+                                    <img style="border-radius: 5px;" src="{{ def.image_url }}" alt="{{ def.image_url }}" width="100" height="100">
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                <div class="row">
+                    <div class="col-12">
+                    </div>
+                </div>
+            {% endif %}
+
+
+        </div>
+        <div class="col-3" style="border-left: 1px solid Gainsboro;">
+            <h3>Description</h3>
+            <p>
+                Enter a word in the text box, click search, and the back-end will send a GET request to the
+                Owlbot Dictionary API (a free, public API). You'll see a list of definitions, examples, and
+                pictures provided by the API.
+            </p>
+        </div>
+    </div>
+
+<hr/>
+    <div class="row top-buffer">
+        <div class="col-12">
+            <h3>Tools used</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-2 d-flex justify-content-center">
+            <div class="p-2 tool-div text-center">
+                <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" alt="python" width="105" height="105">
+                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                    <p>Python</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 d-flex justify-content-center">
+            <div class="p-2 tool-div text-center">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/django-2-282855.png" alt="django" width="105" height="105">
+                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                    <p>Django</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="row align-items-center" style="height:100%">
+                <div class="col text-center">
+                    <h1><strong>+</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 d-flex justify-content-center">
+            <div class="p-2 tool-div text-center">
+                <img src="https://media.owlbot.info/dictionary/images/owlbot.png.400x400_q85_box-0,0,287,288_crop_detail.png" alt="owlbot api" width="105" height="105">
+                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                    <p>Owlbot API</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
