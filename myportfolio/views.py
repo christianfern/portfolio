@@ -10,6 +10,7 @@ import json
 from collections import namedtuple
 from django.conf import settings
 from myportfolio.forms import DefinitionLookupForm
+import os
 
 from myportfolio.classes.Word import Word
 
@@ -23,7 +24,12 @@ def demos(request):
     return render(request, 'myportfolio/demos.html')
 
 def processing_demo(request):
-    return render(request, 'myportfolio/processing-demo.html')
+    file_contents = []
+    for i in range(0,3):
+        f = open(os.path.join(settings.MYPORTFOLIO_ROOT, 'views.py'), 'r')
+        file_contents.append(f.read())
+        f.close()
+    return render(request, 'myportfolio/processing-demo.html', {'file_contents': file_contents})
 
 def definitions_api_demo(request):
     return render(request, 'myportfolio/definitions-api-demo.html')

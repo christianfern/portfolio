@@ -1,10 +1,7 @@
 {% extends 'myportfolio/index.html' %}
 {% load static %}
 {% block title %} Processing Demo {% endblock %}
-
 {%  block content %}
-
-<script src="{% static 'myScripts/processing-1.0.0.min.js' %}"></script>
     <div class="row">
         <div class="col-12">
             <h1>Sorting algorithm visualization</h1>
@@ -65,7 +62,36 @@
             </div>
         </div>
     </div>
-
+    <div class="row mt-5">
+        <div class="col-4"></div>
+        <div class="col-4 text-center" style="border-top: 1px solid Gainsboro;">
+            <p id="toggleCodeText" class="text-secondary">Show me the code</p>
+            <button type="button" class="btn btn-link pulse-icon" onclick="toggleCodeDiv()">
+                <i id="toggleCodeIcon" class="fa fa-angle-double-down fa-3x"></i>
+            </button>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div id="codeDiv"  class="row top-buffer" style="display: none;">
+        <hr/>
+            <h3>Code</h3>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Views.py</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active render-py-breaks" id="home" role="tabpanel" aria-labelledby="home-tab"> {{ file_contents.0 }} </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            </div>
+    </div>
 {% endblock %}
 
 

@@ -15,6 +15,8 @@ from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MYPORTFOLIO_ROOT = os.path.abspath(os.path.dirname(__file__))[:-9] + "myportfolio"
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 
 

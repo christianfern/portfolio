@@ -1,0 +1,127 @@
+body {
+    margin: 20px;
+    //background-color: #F3E8EE;
+    background: white;
+}
+
+
+.my-container{
+    margin-top: 45px;
+    border-left: 1px solid Gainsboro;
+    border-right: 1px solid Gainsboro;
+    padding: 20px 30px;
+}
+
+<!--div.my-col div.my-container{
+    margin-top: 0px;
+    border: 1px solid black;
+}-->
+
+.my-row{s
+    height: 100%;
+
+    //border: 2px solid gray;
+}
+
+div.card-lg{
+    height: 400px;
+    //border: 2px solid #729B79;
+}
+
+.my-col{
+    border-radius: 5px;
+    text-align: center;
+
+    overflow:hidden;
+
+    //border: 2px solid brown;
+}
+
+.expand-col{
+    transition: all .2s ease-in-out;
+}
+
+.expand-col:hover{
+    background-color: #729B79;
+    transform: scale(1.05);
+    color: white;
+    box-shadow: 0px 2px 5px #969696;
+    cursor: pointer;
+}
+
+.my-navbar{
+    background-color: #1C333C;
+}
+
+.current-page{
+    background-color: #729B79;
+    border-radius: 8px;
+}
+
+.desc-card{
+    background-color: #607279;
+    text-align: left;
+}
+
+.demo-card{
+    transition: all .2s ease-in-out;
+    height: #839095;
+}
+
+.demo-card:hover{
+    transform: scale(1.08);
+    z-index: 1;
+}
+
+.demo-banner{
+    background-color: white;
+    border-radius: 0px 0px 8px 8px;
+    border-top: 1px solid black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.empty-box{
+    height: 10px;
+}
+
+.top-buffer { margin-top:20px; }
+
+.tool-div{
+    height:150px;
+    width: 150px;
+    //border: 1px solid green;
+}
+
+.pulse-icon{
+	animation: pulse 2s infinite;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.render-py-breaks{
+	white-space:pre-wrap;
+}
+
+@keyframes pulse {
+	0% {
+		transform: translate(0px,0px);
+	}
+
+	12% {
+		transform: translate(0px,4px);
+	}
+
+	25% {
+		transform: translate(0px,0px);
+	}
+
+	50% {
+		transform: translate(0px,4px);
+	}
+
+	100% {
+		transform: translate(0px,0px);
+	}

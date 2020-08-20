@@ -4,8 +4,14 @@
 
 {%  block content %}
     <div class="row">
-        <div class="col-12">
+        <div class="col-9">
             <h1>Definitions API</h1>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-primary">
+                <i class="fa fa-search" style="margin"></i>
+                Show me the code
+            </button>
         </div>
     </div>
     <div class="row top-buffer">
@@ -76,13 +82,17 @@
 
 
         </div>
-        <div class="col-3" style="border-left: 1px solid Gainsboro;">
-            <h3>Description</h3>
-            <p>
-                Enter a word in the text box, click search, and the back-end will send a GET request to the
-                Owlbot Dictionary API (a free, public API). You'll see a list of definitions, examples, and
-                pictures provided by the API.
-            </p>
+        <div class="col-3" style="border: 1px solid Gainsboro;">
+            <div class="row" style="border: 1px solid red;">
+                <div class="col">
+                    <h3>Description</h3>
+                    <p>
+                        Enter a word in the text box, click search, and the back-end will send a GET request to the
+                        Owlbot Dictionary API (a free, public API). You'll see a list of definitions, examples, and
+                        pictures provided by the API.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
