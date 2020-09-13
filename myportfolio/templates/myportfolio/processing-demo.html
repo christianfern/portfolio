@@ -2,19 +2,20 @@
 {% load static %}
 {% block title %} Processing Demo {% endblock %}
 {%  block content %}
+<div class="container mt-5 text-white" style="border-right:1px solid #373b40;border-left:1px solid #373b40;">
     <div class="row">
         <div class="col-12">
             <h1>Sorting algorithm visualization</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-9 my-col">
-            <canvas data-processing-sources="{% static 'myScripts/sorting-alg-demo.pde' %}"></canvas>
+        <div class="col-lg-9 col-sm-12">
+            <canvas id="canvas" width="300" height="300" data-processing-sources="{% static 'myScripts/sorting-alg-demo.pde' %}"></canvas>
         </div>
-        <div class="col-3" style="border-left: 1px solid Gainsboro;">
+        <div class="col-lg-3 col-sm-12 color-foreground" style="border-left: 1px solid #373b40;">
             <h3>Description</h3>
             <p>
-                This visualization demonstrates an insertion sort algorithm in live time. The program works as follows:
+                This visualization demonstrates an insertion sort algorithm, processed in live-time by your browser in JavaScript. The program works as follows:
                 <ol>
                     <li>Generate random values and store them into an array</li>
                     <li>Iterate through the array and create a line with height equal to the array element</li>
@@ -29,34 +30,34 @@
             <h3>Tools used</h3>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-2 d-flex justify-content-center">
+    <div class="row justify-content-center text-secondary">
+        <div class="col-lg-2 col-sm-6 d-flex justify-content-center">
             <div class="p-2 tool-div text-center">
                 <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png" alt="python" width="105" height="105">
-                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                <div>
                     <p>Python</p>
                 </div>
             </div>
         </div>
-        <div class="col-2 d-flex">
+        <div class="col-lg-2 col-sm-6 d-flex justify-content-center">
             <div class="p-2 tool-div text-center">
                 <img src="https://cdn.iconscout.com/icon/free/png-512/django-2-282855.png" alt="django" width="105" height="105">
-                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                <div>
                     <p>Django</p>
                 </div>
             </div>
         </div>
-        <div class="col-1">
+        <div class="col-lg-1 col-sm-12">
             <div class="row align-items-center" style="height:100%">
                 <div class="col text-center">
                     <h1><strong>+</strong></h1>
                 </div>
             </div>
         </div>
-        <div class="col-2 d-flex justify-content-center">
-            <div class="p-2 tool-div text-center">
+        <div class="col-lg-2 col-sm-12 d-flex justify-content-center">
+            <div class="p-2 tool-div text-center text-secondary">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Processing_3_logo.png/240px-Processing_3_logo.png" alt="processing 3" width="105" height="105">
-                <div style="background-color: Gainsboro;border-radius: 0px 0px 8px 8px;">
+                <div>
                     <p>Processing 3</p>
                 </div>
             </div>
@@ -64,34 +65,32 @@
     </div>
     <div class="row mt-5">
         <div class="col-4"></div>
-        <div class="col-4 text-center" style="border-top: 1px solid Gainsboro;">
+        <div class="col-4 text-center">
             <p id="toggleCodeText" class="text-secondary">Show me the code</p>
             <button type="button" class="btn btn-link pulse-icon" onclick="toggleCodeDiv()">
-                <i id="toggleCodeIcon" class="fa fa-angle-double-down fa-3x"></i>
+                <i id="toggleCodeIcon" class="fa fa-angle-double-down fa-3x text-mine-blue"></i>
             </button>
         </div>
         <div class="col-4"></div>
     </div>
     <div id="codeDiv"  class="row top-buffer" style="display: none;">
         <hr/>
+        <div class="col">
             <h3>Code</h3>
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Views.py</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-              </li>
+            <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="nav-{{files.0.get_name}}-tab" href="#nav-{{files.0.get_name}}" data-toggle="tab"
+                       role="tab" aria-controls="nav-{{files.0.get_name}}" aria-selected="true"
+                        >{{ files.0.get_name }}</a>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active render-py-breaks" id="home" role="tabpanel" aria-labelledby="home-tab"> {{ file_contents.0 }} </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                <div class="tab-pane fade show active render-py-breaks text-white code-viewer" id="nav-{{files.0.get_name}}" role="tabpanel"
+                     aria-labelledby="nav-{{files.0.get_name}}-tab"> {{ files.0.get_content }} </div>
             </div>
+        </div>
     </div>
+</div>
 {% endblock %}
 
 

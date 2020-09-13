@@ -17,6 +17,7 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MYPORTFOLIO_ROOT = os.path.abspath(os.path.dirname(__file__))[:-9] + "myportfolio"
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 
 
@@ -29,7 +30,7 @@ SECRET_KEY = 'b@aq750$g)o9z$^2^-2c3f(o2cdil_m6*dh&+29131j%8i2uqz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "192.168.1.118"]
 
 
 # Application definition
@@ -127,7 +128,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'root')
 #-----------------------------------------------------
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),
+        os.path.join(BASE_DIR, 'static'),BASE_DIR
 ]
 
 #Tokens

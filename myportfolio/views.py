@@ -12,7 +12,7 @@ from django.conf import settings
 from myportfolio.forms import DefinitionLookupForm
 import os
 
-from myportfolio.classes.Word import Word
+from myportfolio.classes.POPO import Word, CodeFile
 
 def index(request):
     return render(request, 'myportfolio/start.html')
@@ -23,13 +23,28 @@ def about_me(request):
 def demos(request):
     return render(request, 'myportfolio/demos.html')
 
+def experience(request):
+    return render(request, 'myportfolio/experience.html')
+
 def processing_demo(request):
-    file_contents = []
-    for i in range(0,3):
-        f = open(os.path.join(settings.MYPORTFOLIO_ROOT, 'views.py'), 'r')
-        file_contents.append(f.read())
-        f.close()
-    return render(request, 'myportfolio/processing-demo.html', {'file_contents': file_contents})
+    files = []
+
+    file_name = "sorting-alg-demo.pde"
+    f = open(os.path.join(settings.STATIC_DIR, 'myScripts\\' + file_name), 'r')
+    file_content = f.read()
+    code_file=CodeFile(file_name, file_content)
+    files.append(code_file)
+    f.close()
+
+    file_name = "main-script.js"
+    f = open(os.path.join(settings.STATIC_DIR, 'myScripts\\' + file_name), 'r')
+    file_content = f.read()
+    code_file = CodeFile(file_name, file_content)
+    files.append(code_file)
+    f.close()
+
+
+    return render(request, 'myportfolio/processing-demo.html', {'files': files})
 
 def definitions_api_demo(request):
     return render(request, 'myportfolio/definitions-api-demo.html')
