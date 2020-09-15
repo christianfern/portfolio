@@ -15,9 +15,10 @@ from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MYPORTFOLIO_ROOT = os.path.abspath(os.path.dirname(__file__))[:-9] + "myportfolio"
+MYPORTFOLIO_ROOT = os.path.abspath(os.path.dirname(__file__))[:-9] + "myportfolio\\"
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+SCRIPTS_DIR = os.path.join(STATIC_DIR, 'myScripts\\')
 
 
 
@@ -30,7 +31,7 @@ SECRET_KEY = 'b@aq750$g)o9z$^2^-2c3f(o2cdil_m6*dh&+29131j%8i2uqz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "192.168.1.118"]
+ALLOWED_HOSTS = ["localhost", "portfolio-2.eba-xpbgf2t3.us-west-2.elasticbeanstalk.com", "portfolio.eba-xpbgf2t3.us-west-2.elasticbeanstalk.com"]
 
 
 # Application definition
